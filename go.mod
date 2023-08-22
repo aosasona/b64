@@ -1,3 +1,3 @@
-module 6ty
+module b64
 
 go 1.20
