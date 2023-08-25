@@ -9,13 +9,18 @@ import (
 
 func main() {
 	var shouldEncode, shouldDecode bool
-	flag.BoolVar(&shouldEncode, "e", true, "encode a string")
+	flag.BoolVar(&shouldEncode, "e", false, "encode a string")
 	flag.BoolVar(&shouldDecode, "d", false, "decode a string")
 	flag.Parse()
 
 	data := flag.Arg(0)
 	if data == "" {
 		log.Fatal("Please provide a string to encode or decode")
+	}
+
+	// Make encoding the default operation
+	if !shouldEncode && !shouldDecode {
+		shouldEncode = true
 	}
 
 	var fn func(string) (string, error)
