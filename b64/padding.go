@@ -18,9 +18,9 @@ func padOutput(output string) string {
 
 func padLeft8bitBinary(bin string) string {
 	var result string
-	missingCells := 8 - len(bin)
+	r := 8 - len(bin)
 
-	for i := 0; i < missingCells; i++ {
+	for i := 0; i < r; i++ {
 		result += "0"
 	}
 
@@ -28,13 +28,15 @@ func padLeft8bitBinary(bin string) string {
 }
 
 func padRight(bin string) string {
-	unassignedCells := len(bin) % 6
-	if unassignedCells > 0 {
+	r := len(bin) % 6
+
+	if r > 0 {
 		i := 0
-		for i < 6-unassignedCells {
+		for i < 6-r {
 			bin += "0"
 			i++
 		}
 	}
+
 	return bin
 }

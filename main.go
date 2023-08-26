@@ -18,7 +18,6 @@ func main() {
 		log.Fatal("Please provide a string to encode or decode")
 	}
 
-	// Make encoding the default operation
 	if !shouldEncode && !shouldDecode {
 		shouldEncode = true
 	}

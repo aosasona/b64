@@ -76,3 +76,12 @@ func getAlphaByIndex(index int) (string, error) {
 	}
 	return alpha, nil
 }
+
+func getIndexByAlpha(alpha string) (int, error) {
+	for index, a := range b64Alphabet {
+		if a == alpha {
+			return index, nil
+		}
+	}
+	return 0, fmt.Errorf("Invalid base64 character: %s", alpha)
+}
