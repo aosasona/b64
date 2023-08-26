@@ -27,5 +27,28 @@ func Encode(data string) (string, error) {
 }
 
 func Decode(data string) (string, error) {
-	return "", nil
+	var result, bin string
+
+	for _, char := range data {
+		if char == '=' {
+			continue
+		}
+
+		bIdx, err := getIndexByAlpha(string(char))
+		if err != nil {
+			return "", err
+		}
+
+		bin += padLeft(intToBin(bIdx))
+	}
+
+	for _, chunk := range chunk8bit(bin) {
+		b, err := binToAscii(chunk)
+		if err != nil {
+			return "", err
+		}
+		result += string(b)
+	}
+
+	return result, nil
 }

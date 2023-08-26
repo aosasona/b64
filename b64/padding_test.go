@@ -36,6 +36,23 @@ func Test_PadRight(t *testing.T) {
 	}
 }
 
+func Test_PadLeft(t *testing.T) {
+	tests := []struct {
+		Case     string
+		Expected string
+	}{
+		{"101", "000101"},
+		{"10110", "010110"},
+		{"101101", "101101"},
+	}
+
+	for _, test := range tests {
+		if padLeft(test.Case) != test.Expected {
+			t.Error("Expected ", test.Expected, ", got ", padLeft(test.Case))
+		}
+	}
+}
+
 func Test_PadOutput(t *testing.T) {
 	// valid base64 strings are not used here
 	tests := []struct {

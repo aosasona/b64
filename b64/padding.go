@@ -40,3 +40,17 @@ func padRight(bin string) string {
 
 	return bin
 }
+
+func padLeft(bin string) string {
+	r := len(bin) % 6
+
+	if r > 0 {
+		i := 0
+		for i < 6-r {
+			bin = "0" + bin
+			i++
+		}
+	}
+
+	return bin
+}

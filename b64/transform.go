@@ -5,6 +5,10 @@ import (
 	"strconv"
 )
 
+func intToBin(i int) string {
+	return strconv.FormatInt(int64(i), 2)
+}
+
 func asciiToBin(code rune) string {
 	return padLeft8bitBinary(strconv.FormatInt(int64(code), 2))
 }
