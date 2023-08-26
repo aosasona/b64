@@ -34,7 +34,7 @@ func main() {
 		log.Fatal("Please provide a valid flag")
 	}
 
-	result, err := b64.Encode(data)
+	result, err := fn(data)
 	if err != nil {
 		log.Fatal(err)
 	}
